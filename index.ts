@@ -1,7 +1,18 @@
-import http from 'http'
+const { Telegraf } = require('telegraf');
+var CronJob = require('cron').CronJob;
 
-http.createServer(handler).listen(80)
+import 'dotenv/config'
 
-function handler(req: any, res: any) {
-  console.log('Hello World')
-}
+const bot = new Telegraf(process.env.BOT_TOKEN)
+
+bot.launch()
+
+new CronJob(
+	'0 23 */2 * *',
+	function() {
+		bot.telegram.sendMessage(process.env.CHAT_ID, "Então... Algum progresso? No que vocês andam trabalhando?")
+	},
+	null,
+	true,
+	'America/Los_Angeles'
+);
