@@ -26,6 +26,4 @@ app.use(bot.webhookCallback(secretPath))
 const PORT = process.env.PORT || 8181;
 app.listen(PORT, () => {
   console.log('Example app listening on port 3000!')
-  console.log(process.env.BOT_TOKEN)
-  console.log(process.env.CHAT_ID)
 })
