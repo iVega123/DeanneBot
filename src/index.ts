@@ -17,6 +17,16 @@ new CronJob(
 	true,
 	'America/Los_Angeles'
 );
+
+new CronJob(
+	'0 14 * * 5',
+	function() {
+		bot.telegram.sendMessage(process.env.CHAT_ID, "Tudo certo para a reunião de Sábado? Lembrando que a reunião é 9:30 no horario do Dark")
+	},
+	null,
+	true,
+	'America/Los_Angeles'
+);
 const secretPath = `/telegraf/${bot.secretPathComponent()}`
 
 const app = express()
