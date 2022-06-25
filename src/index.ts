@@ -2,8 +2,6 @@ const { Telegraf } = require('telegraf');
 var CronJob = require('cron').CronJob;
 import express, { Request, Response } from 'express'
 
-import 'dotenv/config'
-
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
 bot.launch()
@@ -11,6 +9,8 @@ bot.launch()
 new CronJob(
 	'0 14 1-31/2 * *',
 	function() {
+		console.log("RODOU!")
+		console.log(process.env.CHAT_ID, process.env.BOT_TOKEN)
 		bot.telegram.sendMessage(process.env.CHAT_ID, "Então... Algum progresso? No que vocês andam trabalhando?")
 	},
 	null,
@@ -21,6 +21,8 @@ new CronJob(
 new CronJob(
 	'0 14 * * 5',
 	function() {
+		console.log("RODOU!")
+		console.log(process.env.CHAT_ID, process.env.BOT_TOKEN)
 		bot.telegram.sendMessage(process.env.CHAT_ID, "Tudo certo para a reunião de Sábado? Lembrando que a reunião é 9:30 no horario do Dark")
 	},
 	null,
