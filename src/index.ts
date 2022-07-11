@@ -7,7 +7,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN)
 bot.launch()
 
 new CronJob(
-	'0 14 1-31/2 * *',
+	'0 14 * * 1,5',
 	function() {
 		console.log("RODOU!")
 		console.log(process.env.CHAT_ID, process.env.BOT_TOKEN)
@@ -21,7 +21,7 @@ new CronJob(
 new CronJob(
 	'0 14 * * 5',
 	function() {
-		console.log("RODOU!")
+		console.log("RODOU! Sexta")
 		console.log(process.env.CHAT_ID, process.env.BOT_TOKEN)
 		bot.telegram.sendMessage(process.env.CHAT_ID, "Tudo certo para a reunião de Sábado? Lembrando que a reunião é 9:30 no horario do Dark")
 	},
