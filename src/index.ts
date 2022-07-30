@@ -1,6 +1,8 @@
 const { Telegraf } = require('telegraf');
 var CronJob = require('cron').CronJob;
 import express, { Request, Response } from 'express'
+import dotenv from 'dotenv';
+dotenv.config();
 
 const bot = new Telegraf(process.env.BOT_TOKEN)
 
@@ -37,5 +39,6 @@ app.get('/', (req: Request, res: Response) => res.send('Hello World!'))
 app.use(bot.webhookCallback(secretPath))
 const PORT = process.env.PORT || 8181;
 app.listen(PORT, () => {
-  console.log('Example app listening on port 3000!')
+  console.log('Example app listening on port 3000!');
+  console.log(bot);  
 })
